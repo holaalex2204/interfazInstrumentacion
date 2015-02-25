@@ -17,10 +17,14 @@
     <asset:stylesheet src="sb-admin-2.css"/>
     <asset:stylesheet src="morris.css"/>
     <asset:stylesheet src="font-awesome.min.css"/>
+    <asset:javascript src="jquery.min.js"/>
+    <asset:javascript src="angular.js"/>
+    <asset:javascript src="angular-route.js"/>
+    <asset:javascript src="app.js"/>
 
 </head>
 
-<body>
+<body ng-app="Monitoreo" ng-controller="MainCtrl">
 
     <div id="wrapper">            
         <div id="page-wrapper">
@@ -40,12 +44,12 @@
                                     <i class="fa fa-comments fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">26 °C</div>
+                                    <div class="huge">{{temperatura}} °C</div>
                                     <div>Temperatura Actual</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="#Temperatura">
                             <div class="panel-footer">
                                 <span class="pull-left">Ver Gráfica</span>
                                 <span class="pull-right"><asset:image  src="graph.jpg"/></span>
@@ -62,12 +66,12 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">3 m/s</div>
+                                    <div class="huge">{{velocidad}} m/s</div>
                                     <div>Velocidad Angular</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="#VelocidadAngular">
                             <div class="panel-footer">
                                 <span class="pull-left">Ver Gráfica</span>
                                 <span class="pull-right"><asset:image  src="graph.jpg"/></span>
@@ -84,12 +88,12 @@
                                     <i class="fa fa-shopping-cart fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">250 luxes</div>
+                                    <div class="huge">{{intensidad}} luxes</div>
                                     <div>Intensidad Luminiosa</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="#IntensidadLuz">
                             <div class="panel-footer">
                                 <span class="pull-left">Ver Gráfica</span>
                                 <span class="pull-right"><asset:image  src="graph.jpg"/></span>
@@ -99,22 +103,11 @@
                     </div>
                 </div>            
             </div>
+            
+            <ng-view></ng-view>
             <!-- /.row -->
             <div class="row">
-                <div class="col-lg-8">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Gráfica
-                            <div class="pull-right">
-                            </div>
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div id="morris-area-chart"></div>
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
+                <!-- /.panel -->
                      <div class="panel panel-default">
                         <div class="panel-heading">
                             <i class="fa fa-clock-o fa-fw"></i> Integrantes
@@ -154,64 +147,18 @@
                         </div>
                         <!-- /.panel-body -->
                     </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-8 -->
-                <div class="col-lg-4">
-                    <div class="panel panel-default">
-                        
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered table-hover table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th>#</th>
-                                                    <th>Date</th>
-                                                    <th>Time</th>
-                                                    <th>Amount</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>3326</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>3:29 PM</td>
-                                                    <td>$321.33</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3325</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>3:20 PM</td>
-                                                    <td>$234.34</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3324</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>3:03 PM</td>
-                                                    <td>$724.17</td>
-                                                </tr>                                                
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <!-- /.table-responsive -->
-                                </div>
-                        <!-- /.panel-body -->
-                    </div>
-                
-                <!-- /.col-lg-4 -->
             </div>
-            <!-- /.row -->
-        </div>
+        </div>        
         <!-- /#page-wrapper -->
 
     </div>
     <!-- /#wrapper -->
-	<asset:javascript src="jquery.min.js"/>
-	<asset:javascript src="bootstrap.min.js"/>
+
 	<asset:javascript src="metisMenu.min.js"/>
 	<asset:javascript src="raphael-min.js"/>
-	<asset:javascript src="morris.min.js"/>
-	<asset:javascript src="morris-data.js"/>
+	<asset:javascript src="morris.min.js"/>	
 	<asset:javascript src="sb-admin-2.js"/>
+    <asset:javascript src="jquery.canvasjs.js"/>
 
 
 </body>
