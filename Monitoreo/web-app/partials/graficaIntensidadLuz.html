@@ -1,0 +1,46 @@
+
+<div class="row">
+	<H1>Intensidad de Luz</H1>
+                <div class="col-lg-8">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Gráfica
+                            <div class="pull-right">
+                            </div>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div id="morris-area-chart"></div>
+                            <div id="chartContainer" ></div>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                </div>
+                <!-- /.col-lg-8 -->
+                <div class="col-lg-4">
+                    <div class="panel panel-default">
+                        
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover table-striped">
+                                            <thead>
+                                                <tr>                                                    
+                                                    <th>Fecha</th>                                                    
+                                                    <th>Valor</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>                                                
+                                                <tr ng-repeat="elemento in data">
+                                                	<td>{{elemento.fecha}}</td>                                                    
+                                                    <td>{{elemento.valor}}</td>
+                                                </tr>                                             
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.table-responsive -->
+                                </div>
+                        <!-- /.panel-body -->
+                    </div>
+                
+                <!-- /.col-lg-4 -->
+            </div>
+            <!-- /.row -->
