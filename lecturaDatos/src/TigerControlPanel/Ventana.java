@@ -81,17 +81,17 @@ public class Ventana extends javax.swing.JFrame {
         jLabel1.setText("Tiger Tank Control Panel");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11));
-        jLabel2.setText("Throttle");
+        jLabel2.setText("");
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Left");
+        jLabel3.setText("");
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Right");
+        jLabel4.setText("");
 
         lblLeft.setFont(new java.awt.Font("Tahoma", 1, 18));
         lblLeft.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblLeft.setText("0");
+        lblLeft.setText("");
 
         btnLeftAccel.setText("/\\");
             btnLeftAccel.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +116,7 @@ public class Ventana extends javax.swing.JFrame {
 
                 lblRight.setFont(new java.awt.Font("Tahoma", 1, 18));
                 lblRight.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                lblRight.setText("0");
+                lblRight.setText("");
 
                 btnRightDecel.setText("\\/");
                 btnRightDecel.addActionListener(new java.awt.event.ActionListener() {
@@ -141,22 +141,6 @@ public class Ventana extends javax.swing.JFrame {
                         btnDisconnectActionPerformed(evt);
                     }
                 });
-
-                jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11));
-                jLabel6.setText("Controls");
-
-                jLabel7.setText("Q - Accelerate Left");
-
-                jLabel8.setText("A - Decelerate Left");
-
-                jLabel9.setText("W - Accelerate Both");
-
-                jLabel10.setText("S - Decelerate Both");
-
-                jLabel11.setText("D - Decelerate Right");
-
-                jLabel12.setText("E - Accelerate Right");
-
                 jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11));
                 jLabel13.setText("Log");
 
@@ -169,6 +153,10 @@ public class Ventana extends javax.swing.JFrame {
 
                 javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
                 getContentPane().setLayout(layout);
+                btnLeftDecel.setVisible(false);
+                btnLeftAccel.setVisible(false);
+                btnRightDecel.setVisible(false);
+                btnRightAccel.setVisible(false);
                 layout.setHorizontalGroup(
                     layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()

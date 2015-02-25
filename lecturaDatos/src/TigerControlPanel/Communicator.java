@@ -13,6 +13,8 @@ import java.io.OutputStream;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.TooManyListenersException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Communicator implements SerialPortEventListener
 {
@@ -124,17 +126,52 @@ public class Communicator implements SerialPortEventListener
     //open the input and output streams
     //pre: an open port
     //post: initialized intput and output streams for use to communicate data
+    public double leeDato() throws IOException
+    {
+        int res = 0;
+        int aux = 0;
+        while(true)
+        {
+            aux = input.read();
+            if(aux ==-1)
+            {
+                break;
+            }
+            res =res*16 +aux;
+        }
+        return (res*3.6*3.4/1024);
+    }
     public boolean initIOStream()
     {
         //return value for whather opening the streams is successful or not
         boolean successful = false;
-
+        int aux = 0;
         try {
             //
             input = serialPort.getInputStream();
-            output = serialPort.getOutputStream();
-            writeData(0, 0);
-            
+            double a = 0; 
+            output = serialPort.getOutputStream();            
+            while(a >=0)
+            {
+                output.write(0x30);
+                a = leeDato();
+                System.out.println("Canal 30:" + a + "\n");
+                window.txtLog.append("Canal 30:" + a + "\n");
+                output.write(0x31);
+                a = leeDato();
+                System.out.println("Canal 31:" + a + "\n");
+                window.txtLog.append("Canal 31:" + a + "\n");
+                output.write(0x32);
+                a = leeDato();
+                window.txtLog.append("Canal 32:" + a + "\n");
+                System.out.println("Canal 32:" + a + "\n");
+                        
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Communicator.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
             successful = true;
             return successful;
         }
