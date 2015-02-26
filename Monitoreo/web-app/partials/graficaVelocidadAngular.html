@@ -18,8 +18,11 @@
                 </div>
                 <!-- /.col-lg-8 -->
                 <div class="col-lg-4">
+
                     <div class="panel panel-default">
-                        
+                                    <div class="table-responsive">
+                                         Tamaño Salto: <input type="input" ng-model="salto">
+                                    </div>
                                     <div class="table-responsive">
                                         <table class="table table-bordered table-hover table-striped">
                                             <thead>
@@ -29,7 +32,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>                                                
-                                                <tr ng-repeat="elemento in data">
+                                                <tr ng-repeat="elemento in data  | orderBy:'-fecha'">
                                                 	<td>{{elemento.fecha}}</td>                                                    
                                                     <td>{{elemento.valor}}</td>
                                                 </tr>                                             

@@ -4,48 +4,57 @@
 angular.module('Monitoreo', [
   'ngRoute'
 ]).controller('TemperaturaCtrl', function ($scope,$http) {
-	$scope.data = [];
+	$scope.data=[];
+    $scope.salto =1;
     $http({
                 method: "GET",
                 url: "Temperatura/index"
             }).success(function (data, status, headers, config) {
                 $scope.data = data;            
             });
-            document.getElementById("morris-area-chart").innerHTML = "";
+
         Morris.Area({
             element: 'morris-area-chart',
             data: $scope.data,
             xkey: ['fecha'],
             ykeys: ['valor'],
-            labels: ['Velocidad'],
+            labels: ['Temperatura'],
             pointSize: 1,
             hideHover: 'auto',
             resize: true
         });
-	setInterval(function()
+    setInterval(function()
     {
+        var i = 0;
         $http({
                 method: "GET",
                 url: "Temperatura/index"
             }).success(function (data, status, headers, config) {
-                $scope.data = data;            
+                $scope.data2 = data;            
             });
-            document.getElementById("morris-area-chart").innerHTML = "";
+
+            
+        for(i=$scope.data2.length;i>=0;i--){
+            if(i%$scope.salto !=0){
+                $scope.data2.splice(i, 1);
+            }
+        }
+        $scope.data = $scope.data2;
+        document.getElementById("morris-area-chart").innerHTML = "";
         Morris.Area({
             element: 'morris-area-chart',
             data: $scope.data,
             xkey: ['fecha'],
             ykeys: ['valor'],
-            labels: ['Velocidad'],
+            labels: ['Temperatura'],
             pointSize: 1,
             hideHover: 'auto',
             resize: true
         });
     },3000 );
-
-  
 }).controller('IntensidadLuzCtrl', function ($scope,$http) {
 	$scope.data=[];
+    $scope.salto =1;
     $http({
                 method: "GET",
                 url: "Intensidad/index"
@@ -65,32 +74,43 @@ angular.module('Monitoreo', [
         });
     setInterval(function()
     {
+        var i = 0;
         $http({
                 method: "GET",
                 url: "Intensidad/index"
             }).success(function (data, status, headers, config) {
-                $scope.data = data;            
+                $scope.data2 = data;            
             });
-            document.getElementById("morris-area-chart").innerHTML = "";
+
+            
+        for(i=$scope.data2.length;i>=0;i--){
+            if(i%$scope.salto !=0){
+                $scope.data2.splice(i, 1);
+            }
+        }
+        $scope.data = $scope.data2;
+        document.getElementById("morris-area-chart").innerHTML = "";
     	Morris.Area({
             element: 'morris-area-chart',
             data: $scope.data,
             xkey: ['fecha'],
             ykeys: ['valor'],
-            labels: ['Temperatura'],
+            labels: ['Intensidad'],
             pointSize: 1,
             hideHover: 'auto',
             resize: true
         });
     },3000 );
-}).controller('VelocidadAngularCtrl', function ($scope) {
+}).controller('VelocidadAngularCtrl', function ($scope,$http) {
 	$scope.data=[];
+    $scope.salto =1;
     $http({
                 method: "GET",
                 url: "Velocidad/index"
             }).success(function (data, status, headers, config) {
                 $scope.data = data;            
             });
+
         Morris.Area({
             element: 'morris-area-chart',
             data: $scope.data,
@@ -101,14 +121,24 @@ angular.module('Monitoreo', [
             hideHover: 'auto',
             resize: true
         });
-	setInterval(function()
+    setInterval(function()
     {
+        var i = 0;
         $http({
                 method: "GET",
                 url: "Velocidad/index"
             }).success(function (data, status, headers, config) {
-                $scope.data = data;            
+                $scope.data2 = data;            
             });
+
+            
+        for(i=$scope.data2.length;i>=0;i--){
+            if(i%$scope.salto !=0){
+                $scope.data2.splice(i, 1);
+            }
+        }
+        $scope.data = $scope.data2;
+        document.getElementById("morris-area-chart").innerHTML = "";
         Morris.Area({
             element: 'morris-area-chart',
             data: $scope.data,

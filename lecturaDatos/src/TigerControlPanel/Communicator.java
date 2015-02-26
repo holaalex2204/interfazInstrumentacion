@@ -137,13 +137,13 @@ public class Communicator implements SerialPortEventListener
             {
                 break;
             }
-            res =res*16 +aux;
+            res =res*256 +aux;
         }
-        return (res*3.6*3.4/1024);
+        return (res*3.6/1024);
     }
     public boolean initIOStream()
     {
-        //return value for whather opening the streams is successful or not
+        //return value for whather opening the streams is successful or snot
         boolean successful = false;
         int aux = 0;
         try {
@@ -155,14 +155,17 @@ public class Communicator implements SerialPortEventListener
             {
                 output.write(0x30);
                 a = leeDato();
+                JDBCExample.insertaIntensidad(a);
                 System.out.println("Canal 30:" + a + "\n");
                 window.txtLog.append("Canal 30:" + a + "\n");
                 output.write(0x31);
                 a = leeDato();
+                JDBCExample.insertaTemperatura(a);
                 System.out.println("Canal 31:" + a + "\n");
                 window.txtLog.append("Canal 31:" + a + "\n");
                 output.write(0x32);
                 a = leeDato();
+                JDBCExample.insertaVelocidad(a);
                 window.txtLog.append("Canal 32:" + a + "\n");
                 System.out.println("Canal 32:" + a + "\n");
                         

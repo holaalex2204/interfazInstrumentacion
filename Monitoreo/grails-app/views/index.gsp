@@ -44,7 +44,7 @@
                                     <i class="fa fa-comments fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">{{temperatura}} °C</div>
+                                    <div class="huge">{{temperatura| number : 2}} °C</div>
                                     <div>Temperatura Actual</div>
                                 </div>
                             </div>
@@ -66,7 +66,7 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">{{velocidad}} m/s</div>
+                                    <div class="huge">{{velocidad | number : 2}} m/s</div>
                                     <div>Velocidad Angular</div>
                                 </div>
                             </div>
@@ -88,7 +88,7 @@
                                     <i class="fa fa-shopping-cart fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">{{intensidad}} luxes</div>
+                                    <div class="huge">{{intensidad | number : 2}} luxes</div>
                                     <div>Intensidad Luminiosa</div>
                                 </div>
                             </div>
