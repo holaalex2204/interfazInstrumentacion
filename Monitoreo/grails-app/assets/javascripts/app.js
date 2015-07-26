@@ -8,7 +8,7 @@ angular.module('Monitoreo', [
     $scope.salto =1;
     $http({
                 method: "GET",
-                url: "Temperatura/index"
+                url: "Velocidad/index"
             }).success(function (data, status, headers, config) {
                 $scope.data = data;            
             });
@@ -18,7 +18,7 @@ angular.module('Monitoreo', [
             data: $scope.data,
             xkey: ['fecha'],
             ykeys: ['valor'],
-            labels: ['Temperatura'],
+            labels: ['Velocidad'],
             pointSize: 1,
             hideHover: 'auto',
             resize: true
@@ -28,7 +28,7 @@ angular.module('Monitoreo', [
         var i = 0;
         $http({
                 method: "GET",
-                url: "Temperatura/index"
+                url: "Velocidad/index"
             }).success(function (data, status, headers, config) {
                 $scope.data2 = data;            
             });
@@ -46,7 +46,7 @@ angular.module('Monitoreo', [
             data: $scope.data,
             xkey: ['fecha'],
             ykeys: ['valor'],
-            labels: ['Temperatura'],
+            labels: ['Velocidad'],
             pointSize: 1,
             hideHover: 'auto',
             resize: true
@@ -106,7 +106,7 @@ angular.module('Monitoreo', [
     $scope.salto =1;
     $http({
                 method: "GET",
-                url: "Velocidad/index"
+                url: "Temperatura/index"
             }).success(function (data, status, headers, config) {
                 $scope.data = data;            
             });
@@ -116,7 +116,7 @@ angular.module('Monitoreo', [
             data: $scope.data,
             xkey: ['fecha'],
             ykeys: ['valor'],
-            labels: ['Velocidad'],
+            labels: ['Temperatura'],
             pointSize: 1,
             hideHover: 'auto',
             resize: true
@@ -126,7 +126,7 @@ angular.module('Monitoreo', [
         var i = 0;
         $http({
                 method: "GET",
-                url: "Velocidad/index"
+                url: "Temperatura/index"
             }).success(function (data, status, headers, config) {
                 $scope.data2 = data;            
             });
@@ -144,7 +144,7 @@ angular.module('Monitoreo', [
             data: $scope.data,
             xkey: ['fecha'],
             ykeys: ['valor'],
-            labels: ['Velocidad'],
+            labels: ['Temperatura'],
             pointSize: 1,
             hideHover: 'auto',
             resize: true

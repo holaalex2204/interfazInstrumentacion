@@ -139,7 +139,8 @@ public class Communicator implements SerialPortEventListener
             }
             res =res*256 +aux;
         }
-        return (res*3.6/1024);
+        //return (res*3.6/1024);
+        return res;
     }
     public boolean initIOStream()
     {
@@ -153,24 +154,11 @@ public class Communicator implements SerialPortEventListener
             output = serialPort.getOutputStream();            
             while(a >=0)
             {
-                output.write(0x30);
                 a = leeDato();
                 JDBCExample.insertaIntensidad(a);
-                System.out.println("Canal 30:" + a + "\n");
-                window.txtLog.append("Canal 30:" + a + "\n");
-                output.write(0x31);
-                a = leeDato();
-                JDBCExample.insertaTemperatura(a);
-                System.out.println("Canal 31:" + a + "\n");
-                window.txtLog.append("Canal 31:" + a + "\n");
-                output.write(0x32);
-                a = leeDato();
-                JDBCExample.insertaVelocidad(a);
-                window.txtLog.append("Canal 32:" + a + "\n");
-                System.out.println("Canal 32:" + a + "\n");
-                        
+                System.out.println("Leyendo datos:" + a + "\n");
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(500);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Communicator.class.getName()).log(Level.SEVERE, null, ex);
                 }
